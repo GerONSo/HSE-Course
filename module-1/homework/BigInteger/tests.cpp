@@ -8,6 +8,17 @@
 #include "biginteger.h"
 #include "gtest/gtest.h"
 
+TEST(MyTest, Test1) {
+    std::istringstream iss("-0"
+                              "0");
+    BigInteger a;
+    BigInteger b;
+    iss >> a >> b;
+
+    std::ostringstream oss;
+    std::cout << (a == b) << '\n';
+}
+
 TEST(AssignmentFromInt, Test1) {
     int value = 42;
     BigInteger bigint_val;
