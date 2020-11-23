@@ -10,16 +10,14 @@ struct node {
     node* right;
     int value;
 
-    node() {
-        left = nullptr;
-        right = nullptr;
-    }
-
-    node(int _value) {
-        left = nullptr;
-        right = nullptr;
-        value = _value;
-    }
+    node(): 
+        left(nullptr), 
+        right(nullptr) {}
+    
+    node(int _value): 
+        left(nullptr),
+        right(nullptr),
+        value(_value) {}
 
     ~node() {}
 };
@@ -29,10 +27,9 @@ class list {
 
 public:
 
-    list() {
-        begin = nullptr;
-        end = nullptr;
-    };
+    list(): 
+        begin(nullptr),
+        end(nullptr) {}
 
     list(int count, const int& value = int()) {
         
@@ -88,6 +85,9 @@ public:
     }
 
     list& operator=(const list& other) {
+        if(&other == this) {
+            return *this;
+        }
         node* current = begin;
         while(current != nullptr) {
             node* next = current->right;
