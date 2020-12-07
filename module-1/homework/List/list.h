@@ -51,6 +51,9 @@ public:
     }
 
     list(const list& other) {
+        if(&other == this) {
+            return;
+        }
         if(other.begin == nullptr) {
             begin = nullptr;
             end = nullptr;
